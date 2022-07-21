@@ -82,6 +82,10 @@ source {
   font-size: 100%;
 }
 
+html {
+  overflow: auto;
+}
+
 body {
   overflow-x: hidden;
   font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
