@@ -9,13 +9,13 @@ gsap.set(
     }
 );
 
-var video = $("video").get(0);
+var video = $(".opening-animation video").get(0);
 video.addEventListener("ended", function () {
-    $('.logo video').hide();
+    $('.opening-animation video').hide();
 
     $('.slogan').fadeIn(function () {
         $('.curtain').fadeOut(4000);
-        $('.slogan').delay(3000).fadeOut(1000, function () { $('.logo').hide(); });
+        $('.slogan').delay(3000).fadeOut(1000, function () { $('.opening-animation').hide(); });
         const tl = gsap.timeline();
         tl.to("header img", {
             y: 0,
@@ -60,4 +60,18 @@ $(function () {
         // set max time for glitch 2 elem
         glitch2TimeMax: 100,
     });
+});
+
+var isMenu = Boolean("false");
+$("header button").on('click', function () {
+    $('.curtain').fadeTo(1000, 0.5);
+    $('.menu').animate({ 'left': '60vw' }, 1000);
+    isMenu = Boolean("true");
+});
+
+$(document).on('click', function (e) {
+    if (isMenu && $(e.target).closest('.curtain').length) {
+        $('.curtain').fadeOut(1000);
+        $('.menu').animate({ 'left': '100vw' }, 1000);
+    }
 });
