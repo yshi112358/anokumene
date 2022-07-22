@@ -39,19 +39,25 @@ body {
     left: 100vw;
     z-index: 30;
     display: flex;
-    flex-flow: column;
-    justify-content: space-between;
+    align-items: center;
 
-    a {
-        text-decoration: none;
-        font-size: 25px;
-        color: white;
-        height: 15%;
+    .menu-container {
+        height: 70%;
         display: flex;
-        align-items: center;
+        flex-flow: column;
+        justify-content: space-between;
 
-        p {
-            padding-left: 10px;
+        a {
+            text-decoration: none;
+            font-size: 25px;
+            color: white;
+            height: 15%;
+            display: flex;
+            align-items: center;
+
+            p {
+                padding-left: 10px;
+            }
         }
     }
 }

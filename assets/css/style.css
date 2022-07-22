@@ -36,10 +36,15 @@ body {
   left: 100vw;
   z-index: 30;
   display: flex;
+  align-items: center;
+}
+.menu .menu-container {
+  height: 70%;
+  display: flex;
   flex-flow: column;
   justify-content: space-between;
 }
-.menu a {
+.menu .menu-container a {
   text-decoration: none;
   font-size: 25px;
   color: white;
@@ -47,7 +52,7 @@ body {
   display: flex;
   align-items: center;
 }
-.menu a p {
+.menu .menu-container a p {
   padding-left: 10px;
 }
 
