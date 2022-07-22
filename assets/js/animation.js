@@ -1,6 +1,13 @@
 'use strict';
 
 $('.slogan').hide();
+gsap.set(
+    ['header img', 'header p', 'header button'],
+    {
+        opacity: 0,
+        y: -20
+    }
+);
 
 var video = $("video").get(0);
 video.addEventListener("ended", function () {
@@ -9,6 +16,26 @@ video.addEventListener("ended", function () {
     $('.slogan').fadeIn(function () {
         $('.curtain').fadeOut(4000);
         $('.slogan').delay(3000).fadeOut(1000, function () { $('.logo').hide(); });
+        const tl = gsap.timeline();
+        tl.to("header img", {
+            y: 0,
+            opacity: 1,
+            duration: 1.5,
+            delay: 0.5,
+            ease: "power2.inOut"
+        }).to("header p", {
+            y: 0,
+            opacity: 1,
+            duration: 1.5,
+            delay: -0.5,
+            ease: "power2.inOut"
+        }).to("header button", {
+            y: 0,
+            opacity: 1,
+            duration: 1.5,
+            delay: -1.0,
+            ease: "power2.inOut"
+        });
     });
 });
 
