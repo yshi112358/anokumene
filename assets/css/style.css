@@ -3,10 +3,19 @@ html {
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
   color: white;
+  background-color: black;
   position: relative;
+}
+
+.bg {
+  position: fixed;
+  z-index: -1;
+  display: block;
+  width: 100vw;
+  height: 100vh;
   background-image: url("../img/bg.jpg");
   background-position: center center;
   background-size: cover;
@@ -18,9 +27,10 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  position: inherit;
+  position: fixed;
+  z-index: 1000;
 }
-.logo .bg {
+.logo .curtain {
   position: fixed;
   background-color: black;
   width: 100vw;
@@ -35,4 +45,52 @@ body {
   position: fixed;
   font-size: 8vw;
   white-space: nowrap;
+}
+
+header {
+  position: fixed;
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 10;
+}
+header img {
+  position: relative;
+  height: 40px;
+}
+header p {
+  position: relative;
+  font-size: 30px;
+}
+header button {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header button .bar-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+header button .bar-container .bar-margin {
+  height: 15px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header button .bar-container .bar-margin .bar {
+  width: 30px;
+  height: 2px;
+  background-color: white;
+}
+
+.main {
+  position: relative;
+  width: 100vw;
+  top: 60px;
 }/*# sourceMappingURL=style.css.map */

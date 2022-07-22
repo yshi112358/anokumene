@@ -7,8 +7,8 @@ video.addEventListener("ended", function () {
     $('.logo video').hide();
 
     $('.slogan').fadeIn(function () {
-        $('.bg').fadeOut(4000);
-        $('.slogan').delay(3000).fadeOut(1000);
+        $('.curtain').fadeOut(4000);
+        $('.slogan').delay(3000).fadeOut(1000, function () { $('.logo').hide(); });
     });
 });
 
