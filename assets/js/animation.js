@@ -2,7 +2,7 @@
 
 $('.slogan').hide();
 gsap.set(
-    ['header img', 'header p', 'header button'],
+    ['header img', 'header p', 'header button', '.main'],
     {
         opacity: 0,
         y: -20
@@ -30,6 +30,12 @@ video.addEventListener("ended", function () {
             delay: -0.5,
             ease: "power2.inOut"
         }).to("header button", {
+            y: 0,
+            opacity: 1,
+            duration: 1.5,
+            delay: -1.0,
+            ease: "power2.inOut"
+        }).to(".main", {
             y: 0,
             opacity: 1,
             duration: 1.5,

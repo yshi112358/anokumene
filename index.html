@@ -16,7 +16,6 @@
 <body>
     <div class="bg"></div>
     <div class="opening-animation">
-        <!-- <div class="curtain"></div> -->
         <video autoplay muted playsinline>
             <source src="./assets/video/logo-animation.mov">
         </video>
@@ -37,65 +36,53 @@
         </button>
     </header>
     <div class="curtain"></div>
-    <div class="menu"></div>
-    <div class="main">
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
-        あああああああああああああああああ<br>
+    <div class="menu">
+        <a href="#top">top</a>
+        <a href="#news">news</a>
+        <a href="#music">music</a>
+        <a href="#artist">artist</a>
+        <a href="#sns">sns</a>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>ï
+    <div class="main">
+        <div id="top" class="content">
+            こんにちは。私の音楽を聞いてくれてありがとう。
+        </div>
+        <div id="news" class="content">
+            <p class="title">news</p>
+            <dev class="article-container">
+                <a href="" class="article">
+                    <img src="./assets/img/nocolorfes.png" class="thumbnail">
+                    <p>2022.07.22</p>
+                    <p>無色透名祭に参加します！</p>
+                </a>
+                <dev href="" class="article">
+                </dev>
+            </dev>
+        </div>
+        <div id="artist" class="content">
+            <p class="title">artist</p>
+            <img src="./assets/img/icon.jpg">
+            <dev class="discription">
+                <p class="name">亜音</p>
+                <p class="name-read">ane</p>
+                <p class="detail">
+                    小さい頃より音楽に囲まれ育ち、小学５年生の時に友人の勧めでvocaloidを知る。<br>
+                    初めてニコニコ動画で聴いたvocaloid曲はDECO*27（以下敬称略）の「ゴーストルール」。<br>
+                    以来、vocaloid曲を聴き続け高校２年生の時にツミキの「アングレイデイズ」に出会い、日本語の奥深さとその音楽性に感激を受ける。<br>
+                    ツミキ、柊マグネタイト、立椅子かんな、廉などの影響を大きく受け、荒々しいサウンドを奏でる。
+                </p>
+            </dev>
+        </div>
+        <div id="sns" class="content">
+            <p class="title">sns</p>
+            <dev class="sns-icons">
+                <a href=""><img src="./assets/img/youtube.png"></a>
+                <a href="https://www.nicovideo.jp/user/125203040"><img src="./assets/img/niconico.png"></a>
+                <a href="https://twitter.com/ano_anokumene"><img src="./assets/img/twitter.png"></a>
+            </dev>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="./assets/js/animation.js"></script>
