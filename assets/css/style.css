@@ -7,6 +7,9 @@ body {
   color: white;
   background-color: black;
   position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }
 
 .bg {
@@ -127,14 +130,17 @@ header button .bar-container .bar-margin .bar {
 .main {
   position: relative;
   width: 100vw;
-  top: 60px;
+  padding-top: 60px;
   z-index: 0;
   display: flex;
   flex-flow: column;
   align-items: center;
+  padding-bottom: 23vh;
 }
 .main .title {
   font-size: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .main .content {
   display: flex;
@@ -191,4 +197,34 @@ header button .bar-container .bar-margin .bar {
 }
 .main #sns .sns-icons a img {
   width: 100%;
+}
+
+footer {
+  width: 100vw;
+  height: 20vh;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+footer .index {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+footer .index a {
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer .index .copyright {
+  position: relative;
+  bottom: 0;
 }/*# sourceMappingURL=style.css.map */
