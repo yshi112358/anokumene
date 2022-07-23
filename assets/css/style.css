@@ -97,9 +97,17 @@ header img {
   position: relative;
   height: 40px;
 }
-header p {
+header .name {
   position: relative;
   font-size: 30px;
+  white-space: nowrap;
+}
+header .name .underline {
+  background-color: rgba(113, 0, 0, 0.461);
+  width: 100%;
+  height: 20px;
+  bottom: 10px;
+  position: absolute;
 }
 header button {
   width: 50px;
@@ -138,8 +146,7 @@ header button .bar-container .bar-margin .bar {
   padding-bottom: 23vh;
 }
 .main .title {
-  font-size: 50px;
-  padding-top: 10px;
+  font-size: 30px;
   padding-bottom: 10px;
 }
 .main .content {
@@ -147,6 +154,8 @@ header button .bar-container .bar-margin .bar {
   flex-flow: column;
   align-items: center;
   width: 80%;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .main #news .article-container {
   display: flex;
@@ -156,7 +165,7 @@ header button .bar-container .bar-margin .bar {
 }
 .main #news .article-container .article {
   width: 150px;
-  height: 200px;
+  height: 180px;
   text-decoration: none;
 }
 .main #news .article-container .article .thumbnail {
@@ -165,9 +174,14 @@ header button .bar-container .bar-margin .bar {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.main #news .article-container .article p {
+.main #news .article-container .article .date {
   display: block;
   font-size: 20px;
+  color: #fff;
+}
+.main #news .article-container .article .article-title {
+  display: block;
+  font-size: 15px;
   color: #fff;
 }
 .main #artist img {
@@ -190,7 +204,6 @@ header button .bar-container .bar-margin .bar {
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  background-color: rgba(173, 97, 97, 0.416);
 }
 .main #sns .sns-icons a {
   width: 50px;
@@ -219,7 +232,7 @@ footer .index a {
   text-decoration: none;
   font-size: 25px;
   color: white;
-  width: 200px;
+  width: 50vw;
   display: flex;
   align-items: center;
   justify-content: center;

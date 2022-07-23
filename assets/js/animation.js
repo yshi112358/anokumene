@@ -1,6 +1,9 @@
 'use strict';
 
 $('.slogan').hide();
+document.addEventListener('touchmove', disableScroll, { passive: false });
+document.addEventListener('mousewheel', disableScroll, { passive: false });
+
 gsap.set(
     ['header img', 'header p', 'header button', '.main'],
     {
@@ -14,7 +17,10 @@ video.addEventListener("ended", function () {
     $('.opening-animation video').hide();
 
     $('.slogan').fadeIn(function () {
-        $('.curtain').fadeOut(4000);
+        $('.curtain').fadeOut(4000, function () {
+            document.removeEventListener('touchmove', disableScroll, { passive: false });
+            document.removeEventListener('mousewheel', disableScroll, { passive: false });
+        });
         $('.slogan').delay(3000).fadeOut(1000, function () { $('.opening-animation').hide(); });
         const tl = gsap.timeline();
         tl.to("header img", {
@@ -74,8 +80,8 @@ function disableScroll(event) {
 
 var isMenu = Boolean("false");
 $("header button").on('click', function () {
-    $('.curtain').fadeTo(500, 0.5);
-    $('.menu').animate({ 'left': '60vw' }, 500);
+    $('.curtain').fadeTo(200, 0.5);
+    $('.menu').animate({ 'left': '60vw' }, 200);
     isMenu = Boolean("true");
     document.addEventListener('touchmove', disableScroll, { passive: false });
     document.addEventListener('mousewheel', disableScroll, { passive: false });
@@ -83,8 +89,8 @@ $("header button").on('click', function () {
 
 $(document).on('click', function (e) {
     if (isMenu && $(e.target).closest('.curtain').length) {
-        $('.curtain').fadeOut(500);
-        $('.menu').animate({ 'left': '100vw' }, 500);
+        $('.curtain').fadeOut(200);
+        $('.menu').animate({ 'left': '100vw' }, 200);
         document.removeEventListener('touchmove', disableScroll, { passive: false });
         document.removeEventListener('mousewheel', disableScroll, { passive: false });
     }
