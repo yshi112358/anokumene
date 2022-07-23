@@ -141,8 +141,8 @@ header button .bar-container .bar-margin .bar {
   padding-top: 60px;
   z-index: 0;
   display: flex;
-  flex-flow: column;
   align-items: center;
+  flex-wrap: wrap;
   padding-bottom: 23vh;
 }
 .main .title {
@@ -155,15 +155,17 @@ header button .bar-container .bar-margin .bar {
   display: flex;
   flex-flow: column;
   align-items: center;
-  width: 80%;
+  width: 100vw;
+  padding-left: 30px;
+  padding-right: 30px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 .main #news .article-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  width: 90vw;
+  justify-content: space-between;
+  width: 100%;
 }
 .main #news .article-container .article {
   width: 150px;
@@ -188,6 +190,7 @@ header button .bar-container .bar-margin .bar {
 }
 .main #artist img {
   width: 100%;
+  height: auto;
 }
 .main #artist .discription {
   width: 100%;
@@ -243,4 +246,28 @@ footer .index a {
 footer .copyright {
   position: absolute;
   bottom: 10px;
+}
+
+@media screen and (min-width: 481px) {
+  .main .content {
+    width: 50vw;
+  }
+  footer .index a {
+    width: 33.3vw;
+  }
+}
+@media screen and (min-width: 960px) {
+  .main .content {
+    width: 33.3vw;
+  }
+  .opening-animation video {
+    width: 100vw;
+    height: auto;
+  }
+  .opening-animation .slogan {
+    font-size: 5vw;
+  }
+  footer .index a {
+    width: 33.3vw;
+  }
 }/*# sourceMappingURL=style.css.map */
