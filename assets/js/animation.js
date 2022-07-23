@@ -5,7 +5,7 @@ document.addEventListener('touchmove', disableScroll, { passive: false });
 document.addEventListener('mousewheel', disableScroll, { passive: false });
 
 gsap.set(
-    ['header img', 'header p', 'header button', '.main'],
+    ['header img', 'header p', 'header button', '#top', '#news', '#music', '#artist', '#sns'],
     {
         opacity: 0,
         y: -20
@@ -41,11 +41,30 @@ video.addEventListener("ended", function () {
             duration: 1.5,
             delay: -1.0,
             ease: "power2.inOut"
-        }).to(".main", {
+        }).to("#top", {
             y: 0,
             opacity: 1,
-            duration: 1.5,
-            delay: -1.0,
+            duration: 1,
+            ease: "power2.inOut"
+        }).to("#news", {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power2.inOut"
+        }).to("#music", {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power2.inOut"
+        }).to("#artist", {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power2.inOut"
+        }).to("#sns", {
+            y: 0,
+            opacity: 1,
+            duration: 1,
             ease: "power2.inOut"
         });
     });

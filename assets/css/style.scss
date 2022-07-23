@@ -165,7 +165,9 @@ header {
 
     .title {
         font-size: 30px;
-        padding-bottom: 10px;
+        height: 30px;
+        margin-bottom: 10px;
+        background: linear-gradient(transparent 30%, rgba(113, 0, 0, 0.632) 50%);
     }
 
     .content {
@@ -273,17 +275,18 @@ footer {
             font-size: 25px;
             color: white;
             width: 50vw;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-
-            p {}
         }
 
-        .copyright {
-            position: relative;
-            bottom: 0;
-        }
+
+    }
+
+    .copyright {
+        position: absolute;
+        bottom: 10px;
     }
 }
 
