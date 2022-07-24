@@ -116,6 +116,22 @@ $(document).on('click', function (e) {
     }
 });
 
+$('#news .article-button').each(function () {
+    var id = $(this).attr('id');
+    $.ajax({
+        url: './assets/news/' + id + '.txt',
+        success: function (data) {
+            var data_array = data.split(/\r\n|\r|\n/, 3);  // 改行コードで分割
+            $('#' + id).html('<img src="./assets/news/' + id + '.png" class="article-thumbnail">'
+                + '<p class="article-date">' + data_array[0] + '</p>'
+                + '<p class="article-title">' + data_array[1] + '</p>')
+            // $('#' + id + ' .article-date').html(data_array[0]);
+            // $('#' + id + ' .article-title').html(data_array[1]);
+            // $('#' + id + ' .article-thumbnail').attr('src', './assets/news/' + id + '.png');
+        }
+    });
+});
+
 var currentNews;
 $("#news button").on('click', function () {
     var id = $(this).attr('id');
@@ -181,6 +197,7 @@ function loadArticle(data, id) {
     });
     currentNews = id;
 }
+
 function switchArticle(data, id, dir) {
     var tl = gsap.timeline();
     tl.to(".article-detail .article-date", {
