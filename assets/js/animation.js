@@ -110,18 +110,133 @@ $(document).on('click', function (e) {
     if (isMenu && $(e.target).closest('.curtain').length) {
         $('.curtain').fadeOut(200);
         $('.menu').animate({ 'left': '100vw' }, 200);
-        $('.article-detail').animate({ 'bottom': '-80vh' }, 200);
+        $('.article-detail').animate({ 'top': '100vh' }, 200);
         document.removeEventListener('touchmove', disableScroll, { passive: false });
         document.removeEventListener('mousewheel', disableScroll, { passive: false });
     }
 });
 
+var currentNews;
 $("#news button").on('click', function () {
-    $('.curtain').fadeTo(200, 0.5);
-    $('.article-detail').animate({ 'bottom': '0' }, 200);
     var id = $(this).attr('id');
-    $('.article-detail .article-thumbnail').attr('src', './assets/news/' + id + '.png');
+    $.ajax({
+        url: './assets/news/' + id + '.txt',
+        success: function (data) {
+            loadArticle(data, id);
+        }
+    });
+
+    $('.curtain').fadeTo(200, 0.5);
+    $('.article-detail').animate({ 'top': '20vh' }, 200);
     isMenu = Boolean("true");
     document.addEventListener('touchmove', disableScroll, { passive: false });
     document.addEventListener('mousewheel', disableScroll, { passive: false });
 });
+
+// 右矢印処理
+$(".article-detail .arrow-right").on('click', function () {
+    var id = 'news' + ('0' + (Number(currentNews.slice(-2)) - 1)).slice(-2);
+
+    $.ajax({
+        url: './assets/news/' + id + '.txt',
+        success: function (data) {
+            switchArticle(data, id, -1);
+        }
+    });
+});
+
+// 左矢印処理
+$(".article-detail .arrow-left").on('click', function () {
+    var id = 'news' + ('0' + (Number(currentNews.slice(-2)) + 1)).slice(-2);
+
+    $.ajax({
+        url: './assets/news/' + id + '.txt',
+        success: function (data) {
+            switchArticle(data, id, 1);
+        }
+    });
+});
+
+function loadArticle(data, id) {
+    var data_array = data.split(/\r\n|\r|\n/, 3);  // 改行コードで分割
+    $('.article-detail .article-date').html(data_array[0]);
+    $('.article-detail .article-title').html(data_array[1]);
+    $('.article-detail .article-contents').html(data_array[2]);
+    $('.article-detail .article-thumbnail').attr('src', './assets/news/' + id + '.png');
+    // 右矢印の有効化
+    $('.article-detail .arrow-right').css('opacity', 0.5);
+    $.ajax({
+        url: './assets/news/news' + ('0' + (Number(id.slice(-2)) - 1)).slice(-2) + '.txt',
+        success: function (data) {
+            $('.article-detail .arrow-right').css('opacity', 1);
+        }
+    });
+    // 左矢印の有効化
+    $('.article-detail .arrow-left').css('opacity', 0.5);
+    $.ajax({
+        url: './assets/news/news' + ('0' + (Number(id.slice(-2)) + 1)).slice(-2) + '.txt',
+        success: function (data) {
+            $('.article-detail .arrow-left').css('opacity', 1);
+        }
+    });
+    currentNews = id;
+}
+function switchArticle(data, id, dir) {
+    var tl = gsap.timeline();
+    tl.to(".article-detail .article-date", {
+        x: 20 * dir,
+        opacity: 0,
+        duration: 0.2,
+        ease: "power2.inOut"
+    }).to(".article-detail .article-title", {
+        x: 20 * dir,
+        opacity: 0,
+        duration: 0.2,
+        delay: -0.1,
+        ease: "power2.inOut"
+    }).to(".article-detail .article-thumbnail", {
+        x: 20 * dir,
+        opacity: 0,
+        duration: 0.2,
+        delay: -0.1,
+        ease: "power2.inOut"
+    }).to(".article-detail .article-contents", {
+        x: 20 * dir,
+        opacity: 0,
+        duration: 0.2,
+        delay: -0.1,
+        ease: "power2.inOut",
+        onComplete: () => {
+            loadArticle(data, id);
+        }
+    }).set(
+        ['.article-detail .article-date', '.article-detail .article-title', '.article-detail .article-thumbnail', '.article-detail .article-contents'],
+        {
+            opacity: 0,
+            x: -20 * dir
+        }
+    ).to(".article-detail .article-date", {
+        x: 0,
+        opacity: 1,
+        duration: 0.2,
+        ease: "power2.inOut"
+    }).to(".article-detail .article-title", {
+        x: 0,
+        opacity: 1,
+        duration: 0.2,
+        delay: -0.1,
+        ease: "power2.inOut"
+    }).to(".article-detail .article-thumbnail", {
+        x: 0,
+        opacity: 1,
+        duration: 0.2,
+        delay: -0.1,
+        ease: "power2.inOut"
+    }).to(".article-detail .article-contents", {
+        x: 0,
+        opacity: 1,
+        duration: 0.2,
+        delay: -0.1,
+        ease: "power2.inOut"
+    });
+}

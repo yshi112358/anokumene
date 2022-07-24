@@ -206,7 +206,7 @@ header {
                 .article-date {
                     width: 100%;
                     display: block;
-                    font-size: 20px;
+                    font-size: 25px;
                     color: #fff;
                     text-align: left;
                 }
@@ -214,7 +214,7 @@ header {
                 .article-title {
                     width: 100%;
                     display: block;
-                    font-size: 15px;
+                    font-size: 20px;
                     color: #fff;
                     text-align: left;
                 }
@@ -268,14 +268,82 @@ header {
     position: fixed;
     width: 100vw;
     height: 80vh;
-    bottom: -80vh;
+    top: 100vh;
     background-color: black;
     z-index: 40;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
 
-    .article-thumbnail {
-        width: 300px;
-        height: 300px/16*9;
-        object-fit: cover;
+    .article-date {
+        font-size: 40px;
+        transform: scaleY(0.7);
+        transform-origin: 50% 50%;
+        margin-top: 10px;
+        margin-bottom: -10px;
+    }
+
+    .article-title {
+        font-size: 30px;
+        background: linear-gradient(transparent 30%, rgba(113, 0, 0, 0.352) 50%);
+        margin-bottom: 10px;
+    }
+
+    .article-thumbnail-arrow {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        .article-thumbnail {
+            width: 250px;
+            height: 250px/16*9;
+            object-fit: cover;
+        }
+
+        .arrow {
+            position: relative;
+            width: 50px;
+            height: 150px;
+
+            .arrow-shape {
+                position: absolute;
+                top: 74px;
+                left: 0;
+
+                .arrow-upper {
+                    position: absolute;
+                    width: 20px;
+                    height: 2px;
+                    background-color: white;
+                    transform: rotate(60deg);
+                    transform-origin: 100% 100%;
+                }
+
+                .arrow-lower {
+                    position: absolute;
+                    width: 20px;
+                    height: 2px;
+                    background-color: white;
+                    transform: rotate(-60deg);
+                    transform-origin: 100% 0%;
+                }
+            }
+        }
+
+        .arrow-left {
+            transform: rotate(180deg);
+            transform-origin: 50% 50%;
+        }
+    }
+
+    .article-contents {
+        margin-top: 10px;
+        margin-left: 25px;
+        margin-right: 25px;
+        line-height: 2;
     }
 }
 
