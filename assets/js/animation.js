@@ -1,8 +1,9 @@
 'use strict';
+var ua = window.navigator.userAgent.toLowerCase();
+var isiOS = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1 || ua.indexOf('macintosh') > -1 && 'ontouchend' in document;
 
 $('.slogan').hide();
-document.addEventListener('touchmove', disableScroll, { passive: false });
-document.addEventListener('mousewheel', disableScroll, { passive: false });
+scrollOff();
 
 gsap.set(
     ['header img', 'header p', 'header button', '#top', '#news', '#music', '#artist', '#sns'],
@@ -18,8 +19,7 @@ video.addEventListener("ended", function () {
 
     $('.slogan').fadeIn(function () {
         $('.curtain').fadeOut(4000, function () {
-            document.removeEventListener('touchmove', disableScroll, { passive: false });
-            document.removeEventListener('mousewheel', disableScroll, { passive: false });
+            scrollOn();
         });
         $('.slogan').delay(3000).fadeOut(1000, function () { $('.opening-animation').hide(); });
         const tl = gsap.timeline();
@@ -93,17 +93,12 @@ $(function () {
     });
 });
 
-function disableScroll(event) {
-    event.preventDefault();
-}
-
 var isMenu = Boolean("false");
 $("header button").on('click', function () {
     $('.curtain').fadeTo(200, 0.5);
     $('.menu').animate({ 'left': '60vw' }, 200);
     isMenu = Boolean("true");
-    document.addEventListener('touchmove', disableScroll, { passive: false });
-    document.addEventListener('mousewheel', disableScroll, { passive: false });
+    scrollOff();
 });
 
 $(document).on('click', function (e) {
@@ -111,12 +106,7 @@ $(document).on('click', function (e) {
         $('.curtain').fadeOut(200);
         $('.menu').animate({ 'left': '100vw' }, 200);
         $('.article-detail').animate({ 'top': '100vh' }, 200);
-        $('body').css({
-            'overflow-y': 'auto',
-            'height': 'auto'
-        });
-        document.removeEventListener('touchmove', disableScroll, { passive: false });
-        document.removeEventListener('mousewheel', disableScroll, { passive: false });
+        scrollOn();
     }
 });
 
@@ -149,10 +139,7 @@ $("#news button").on('click', function () {
     $('.curtain').fadeTo(200, 0.5);
     $('.article-detail').animate({ 'top': '20vh' }, 200);
     isMenu = Boolean("true");
-    $('body').css({
-        'overflow-y': 'hidden',
-        'height': '100vh'
-    });
+    scrollOff();
 });
 
 // 右矢印処理
@@ -262,4 +249,27 @@ function switchArticle(data, id, dir) {
         delay: -0.1,
         ease: "power2.inOut"
     });
+}
+
+var scrollPosition;
+function scrollOff() {
+    if (isiOS) {
+        scrollPosition = $(window).scrollTop();
+        $('body').css('position', 'fixed');
+        $('body').css('top', '-' + scrollPosition + 'px');
+    }
+    else {
+        $('html').css('overflow', 'hidden');
+    }
+}
+
+function scrollOn() {
+    if (isiOS) {
+        $('body').css('position', 'relative');
+        $('body').css('top', '');
+        $(window).scrollTop(scrollPosition);
+    }
+    else {
+        $('html').css('overflow', 'auto');
+    }
 }
