@@ -5,7 +5,6 @@ html {
 }
 
 body {
-    // overflow-x: hidden;
     font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
     color: white;
     background-color: black;
@@ -159,7 +158,6 @@ header {
     padding-top: 60px;
     z-index: 0;
     display: flex;
-    // flex-flow: column;
     align-items: center;
     flex-wrap: wrap;
     padding-bottom: 23vh;
@@ -343,7 +341,13 @@ header {
         margin-top: 10px;
         margin-left: 25px;
         margin-right: 25px;
+        margin-bottom: 20px;
         line-height: 2;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }
 

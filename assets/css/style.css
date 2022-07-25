@@ -295,7 +295,12 @@ header button .bar-container .bar-margin .bar {
   margin-top: 10px;
   margin-left: 25px;
   margin-right: 25px;
+  margin-bottom: 20px;
   line-height: 2;
+  overflow-y: scroll;
+}
+.article-detail .article-contents::-webkit-scrollbar {
+  display: none;
 }
 
 footer {

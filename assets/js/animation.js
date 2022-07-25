@@ -111,6 +111,10 @@ $(document).on('click', function (e) {
         $('.curtain').fadeOut(200);
         $('.menu').animate({ 'left': '100vw' }, 200);
         $('.article-detail').animate({ 'top': '100vh' }, 200);
+        $('body').css({
+            'overflow-y': 'auto',
+            'height': 'auto'
+        });
         document.removeEventListener('touchmove', disableScroll, { passive: false });
         document.removeEventListener('mousewheel', disableScroll, { passive: false });
     }
@@ -145,8 +149,10 @@ $("#news button").on('click', function () {
     $('.curtain').fadeTo(200, 0.5);
     $('.article-detail').animate({ 'top': '20vh' }, 200);
     isMenu = Boolean("true");
-    document.addEventListener('touchmove', disableScroll, { passive: false });
-    document.addEventListener('mousewheel', disableScroll, { passive: false });
+    $('body').css({
+        'overflow-y': 'hidden',
+        'height': '100vh'
+    });
 });
 
 // 右矢印処理
