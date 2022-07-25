@@ -251,12 +251,19 @@ function switchArticle(data, id, dir) {
     });
 }
 
-var scrollPosition;
+var $window = $(window),
+    $html = $('html'),
+    $body = $('body'),
+    $overlay = $('.overlay'),
+    scrollbar_width = window.innerWidth - document.body.scrollWidth,
+    touch_start_y;
+$window.on('touchstart', function (event) {
+    touch_start_y = event.originalEvent.changedTouches[0].screenY;
+});
+
+
 function scrollOff() {
     if (isiOS) {
-        scrollPosition = $(window).scrollTop();
-        $('body').css('position', 'fixed');
-        $('body').css('top', '-' + scrollPosition + 'px');
     }
     else {
         $('html').css('overflow', 'hidden');
@@ -265,9 +272,6 @@ function scrollOff() {
 
 function scrollOn() {
     if (isiOS) {
-        $('body').css('position', 'relative');
-        $('body').css('top', '');
-        $(window).scrollTop(scrollPosition);
     }
     else {
         $('html').css('overflow', 'auto');
