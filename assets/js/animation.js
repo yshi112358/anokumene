@@ -1,4 +1,12 @@
 'use strict';
+$(window).on('load', function () {
+
+    var $widget = $('iframe.twitter-timeline');
+    var $widgetContents = $widget.contents();
+    $widgetContents.find('head').append('<link href="./assets/css/tw.css" rel="stylesheet" type="text/css">');
+
+});
+
 var ua = window.navigator.userAgent.toLowerCase();
 var isiOS = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1 || ua.indexOf('macintosh') > -1 && 'ontouchend' in document;
 

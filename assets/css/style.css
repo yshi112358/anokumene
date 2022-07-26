@@ -361,6 +361,9 @@ footer .copyright {
   .main .content {
     width: 50vw;
   }
+  .article-detail {
+    height: 70vh;
+  }
   footer .index a {
     width: 33.3vw;
   }
@@ -375,6 +378,9 @@ footer .copyright {
   }
   .opening-animation .slogan {
     font-size: 5vw;
+  }
+  .article-detail {
+    height: 60vh;
   }
   footer .index a {
     width: 33.3vw;
