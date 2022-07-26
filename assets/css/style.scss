@@ -40,6 +40,31 @@ body {
     z-index: 20;
 }
 
+.cancel {
+    width: 0px;
+    height: 0px;
+    position: fixed;
+    display: none;
+    z-index: 50;
+
+    .cancel-bar {
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background-color: white;
+        transform-origin: 50% 50%;
+        left: -20px;
+    }
+
+    .cancel-upper {
+        transform: rotate(45deg);
+    }
+
+    .cancel-lower {
+        transform: rotate(-45deg);
+    }
+}
+
 .menu {
     width: 40vw;
     height: 100vh;
@@ -267,7 +292,7 @@ header {
     position: fixed;
     width: 100vw;
     height: 80vh;
-    top: 100vh;
+    bottom: -100vh;
     background-color: black;
     z-index: 40;
     display: flex;
