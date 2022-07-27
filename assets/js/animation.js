@@ -148,7 +148,7 @@ $("#news button").on('click', function () {
     });
 
     $('.curtain').fadeTo(200, 0.5);
-    $('.cancel').css({ 'top': '10vh', 'left': '50vw' });
+    $('.cancel').css({ 'top': '30px', 'left': '50vw' });
     $('.cancel').fadeIn();
     $('.article-detail').animate({ 'bottom': '0vh' }, 200);
     isMenu = Boolean("true");
