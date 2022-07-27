@@ -186,19 +186,23 @@ function loadArticle(data, id) {
     $('.article-detail .article-contents').html(data_array[2]);
     $('.article-detail .article-thumbnail').attr('src', './assets/news/' + id + '.png');
     // 右矢印の有効化
-    $('.article-detail .arrow-right').css('opacity', 0.5);
     $.ajax({
         url: './assets/news/news' + ('0' + (Number(id.slice(-2)) - 1)).slice(-2) + '.txt',
         success: function (data) {
             $('.article-detail .arrow-right').css('opacity', 1);
+        },
+        error: function () {
+            $('.article-detail .arrow-right').css('opacity', 0.5);
         }
     });
     // 左矢印の有効化
-    $('.article-detail .arrow-left').css('opacity', 0.5);
     $.ajax({
         url: './assets/news/news' + ('0' + (Number(id.slice(-2)) + 1)).slice(-2) + '.txt',
         success: function (data) {
             $('.article-detail .arrow-left').css('opacity', 1);
+        },
+        error: function () {
+            $('.article-detail .arrow-left').css('opacity', 0.5);
         }
     });
     currentNews = id;
